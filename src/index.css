@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-script: 'Dancing Script', cursive;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #0b0307;
+    color: #fdf2f4;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Custom sleek scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f050b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e11d4833;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e11d4888;
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-script-love {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(26, 10, 18, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 113, 133, 0.15);
+}
+
+.glass-panel-elevated {
+  background: rgba(36, 12, 24, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 113, 133, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(225, 29, 72, 0.12);
+}
+
+.glass-pill {
+  background: rgba(20, 6, 14, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+/* Luxury Glows */
+.text-glow-rose {
+  text-shadow: 0 0 20px rgba(244, 63, 94, 0.65), 0 0 40px rgba(225, 29, 72, 0.35);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.65), 0 0 35px rgba(245, 158, 11, 0.4);
+}
+
+.glow-box-rose {
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.25), 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glow-box-candle {
+  box-shadow: 0 0 35px rgba(251, 146, 60, 0.6), 0 0 70px rgba(245, 158, 11, 0.3);
+}
+
+/* Candle flame flicker animation */
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.9));
+  }
+  25% {
+    transform: scale(1.08, 0.95) rotate(1.5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(245, 158, 11, 1));
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(-0.5deg);
+    opacity: 0.92;
+    filter: drop-shadow(0 0 9px rgba(251, 146, 60, 0.85));
+  }
+  75% {
+    transform: scale(1.03, 0.98) rotate(1deg);
+    opacity: 0.98;
+    filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.95));
+  }
+}
+
+.animate-flame {
+  animation: flicker 1.8s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+/* Smoke rise animation when blown out */
+@keyframes smoke {
+  0% {
+    transform: translateY(0) scale(0.4) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-50px) scale(2.2) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.animate-smoke {
+  animation: smoke 1.6s forwards ease-out;
+}
+
+/* Map route trajectory animation */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash {
+  animation: dash 2.2s linear infinite;
+}
+
